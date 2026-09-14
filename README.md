@@ -1,6 +1,6 @@
 # Platform Governance & Regionalization Agent Suite
 
-Four small, working prototypes built to demonstrate the kind of tooling a
+Five small, working prototypes built to demonstrate the kind of tooling a
 Technical Program Manager on a platform/regionalization team would actually
 want — each one models a piece of work I did by hand at Autodesk (API
 governance, cross-region risk reporting) or maps directly onto this role's
@@ -62,6 +62,22 @@ the self-serve, guardrails-included side of developer enablement.
 git clone https://github.com/digitalnomadyh/04-dev-access-assistant
 cd 04-dev-access-assistant
 python assistant.py --requests data/requests.json --out output/decisions.md
+```
+
+## 5. [Data Residency Compliance Checker](https://github.com/digitalnomadyh/05-data-residency-compliance-checker)
+
+"API compliance" isn't one checklist — EU, APAC, and Amer each impose
+different, non-overlapping data residency rules (GDPR, PIPL, PDPA, DPDP
+Act, FedRAMP, US state law). This checks *where data actually lives*
+against *what its jurisdiction requires*, flagging data stored outside its
+approved region(s) without a documented cross-border transfer mechanism.
+A different question from whether an endpoint has the right auth scope
+(tool #1) or whether a region is launch-ready (tool #3).
+
+```bash
+git clone https://github.com/digitalnomadyh/05-data-residency-compliance-checker
+cd 05-data-residency-compliance-checker
+python residency_checker.py --rules data/residency_rules.yaml --flows data/data_flows.json --out output/residency_report.md
 ```
 
 ## Setup
